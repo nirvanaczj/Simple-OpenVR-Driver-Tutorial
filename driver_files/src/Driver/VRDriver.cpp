@@ -5504,13 +5504,13 @@ void websocket_trackersDriver::VRDriver::RunFrame() {
 	for (auto& device : this->devices_)
 		device->Update();
 
-	const int max_devices = 10;
+	const int max_devices = 20;
 	vr::TrackedDevicePose_t device_poses[max_devices];
 	vr::VRServerDriverHost()->GetRawTrackedDevicePoses(0, device_poses,max_devices);
 	std::string device_positions = "";
 	int total_devices = 0;
 	for (int i = 0; i < max_devices; i++) {
-		if (device_poses[i].bDeviceIsConnected && device_poses[i].bPoseIsValid) {
+		//if (device_poses[i].bDeviceIsConnected && device_poses[i].bPoseIsValid) {
 			total_devices++;
 
 			auto props = vr::VRProperties()->TrackedDeviceToPropertyContainer(i);
@@ -5568,7 +5568,7 @@ void websocket_trackersDriver::VRDriver::RunFrame() {
 				", \"z\":" + std::to_string(z) + ", \"qw\":" + std::to_string(qw) +
 				", \"qx\":" + std::to_string(qx) + ", \"qy\":" + std::to_string(qy) +
 				", \"qz\":" + std::to_string(qz) + "}";
-		}
+		//}
 	}
 
 	device_positions = device_positions;

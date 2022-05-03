@@ -131,7 +131,7 @@ vr::TrackedDeviceIndex_t websocket_trackersDriver::TrackerDevice::GetDeviceIndex
 
 vr::EVRInitError websocket_trackersDriver::TrackerDevice::Activate(uint32_t unObjectId)
 {
-    this->device_index_ = 10;
+    this->device_index_ = unObjectId;
 
     GetDriver()->Log("Activating tracker " + this->serial_);
 
