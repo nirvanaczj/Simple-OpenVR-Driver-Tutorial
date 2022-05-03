@@ -5183,6 +5183,12 @@ websocket_trackersDriver::VRDriver::Init(vr::IVRDriverContext* pDriverContext) {
 
 	Log("Activating websocket_trackersDriver...");
 
+	std::string device_name = "PlaceHolder";
+	std::string trackerRole = "TrackerRole_Waist";
+	int device_id_cur = 1;
+
+	this->AddDevice(std::make_shared<TrackerDevice>(device_name, device_id_cur, trackerRole));
+
 	// Add a HMD
 	// this->AddDevice(std::make_shared<HMDDevice>("websocket_trackers_HMDDevice"));
 
